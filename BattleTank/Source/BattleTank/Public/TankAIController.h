@@ -21,5 +21,7 @@ protected:
 public:
 	
 	ATank* GetAIController() const;
+
+	ATank * GetPlayerTank() const;
 	
 };
