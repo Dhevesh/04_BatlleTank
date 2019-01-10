@@ -81,7 +81,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 		HitLocation = HitResult.Location;
 		return true;
 	}
-	// HitLocation = FVector(0.f) if nothing is hit this returns zero to avoid and weird numbers being returned.
+	HitLocation = FVector(0.f); //if nothing is hit this returns zero to avoid and weird numbers being returned.
 	return false;
 
 }
