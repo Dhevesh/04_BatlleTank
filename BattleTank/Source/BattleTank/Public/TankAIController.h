@@ -19,8 +19,9 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	virtual void Tick(float DeltaTime) override;
 	
-	ATank* GetAIController() const;
+	ATank* GetAITank() const;
 
 	ATank * GetPlayerTank() const;
 	
