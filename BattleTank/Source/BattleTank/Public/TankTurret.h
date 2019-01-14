@@ -20,6 +20,6 @@ public:
 
 private:
 	
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	float MaxDegreesPerSecond = 45.f; // sensible default for turret rotation.
 };
