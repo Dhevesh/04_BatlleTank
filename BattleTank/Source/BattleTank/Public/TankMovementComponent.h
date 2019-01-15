@@ -7,9 +7,12 @@
 #include "TankMovementComponent.generated.h"
 
 /**
- * 
+ * Responsible for driving the tank tracks.
  */
-UCLASS()
+
+class UTankTrack;
+
+UCLASS( meta = (BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankMovementComponent : public UNavMovementComponent
 {
 	GENERATED_BODY()
@@ -18,9 +21,16 @@ protected:
 
 	
 public:
+	UFUNCTION(BlueprintCallable)
+	void Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 	UFUNCTION(BlueprintCallable)
 	void IntendMoveForward(float Throw);
+
+private:
+	UTankTrack* LeftTrack = nullptr;
+	UTankTrack* RightTrack = nullptr;
+	
 	
 	
 };
