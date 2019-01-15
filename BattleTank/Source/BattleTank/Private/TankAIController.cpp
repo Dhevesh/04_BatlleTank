@@ -10,6 +10,8 @@ void ATankAIController::BeginPlay()
 
 }
 
+
+
 void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -19,6 +21,7 @@ void ATankAIController::Tick(float DeltaTime)
 		auto AITank = Cast<ATank>(GetPawn());
 
 		// TODO move toward the player
+		MoveToActor(PlayerTank, AcceptanceRadius);
 
 		// Aim toward the player
 		AITank->AimAt(PlayerTank->GetTargetLocation()); // can use GetActorLocation
