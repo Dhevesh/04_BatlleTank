@@ -33,6 +33,10 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
 	auto FowardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
 
+	auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
+	
+	// Gives tank movement toward you.
+	IntendTurnRight(RightThrow);
 	IntendMoveForward(FowardThrow);
 	
 	
