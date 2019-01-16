@@ -6,7 +6,6 @@
 
 void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
 {
-	
 	LeftTrack = LeftTrackToSet;
 	RightTrack = RightTrackToSet;
 }
@@ -16,7 +15,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
-
 }
 
 void UTankMovementComponent::IntendTurnRight(float Throw)
@@ -24,7 +22,6 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
-
 }
 
 void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, bool bForceMaxSpeed)
@@ -32,14 +29,11 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
 	auto FowardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
-
 	auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
 	
-	// Gives tank movement toward you.
+	// Gives AI tank movement toward you.
 	IntendTurnRight(RightThrow);
 	IntendMoveForward(FowardThrow);
-	
-	
 }
 
 
