@@ -22,7 +22,8 @@ void ATank::BeginPlay()
 
 	auto Name = GetName();
 	UE_LOG(LogTemp, Warning, TEXT("Donkey : %s c++ beginplay"), *Name)
-	
+
+		TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
 
 void ATank::AimAt(FVector HitLocation)
