@@ -34,7 +34,7 @@ public:
 protected:
 
 	UPROPERTY(BlueprintReadOnly)
-	EFiringState FiringState = EFiringState::Reloading;
+	EFiringState FiringState = EFiringState::Locked;
 
 public:	
 
