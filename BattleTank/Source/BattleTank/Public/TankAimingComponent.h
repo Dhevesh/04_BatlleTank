@@ -19,7 +19,7 @@ enum class EFiringState : uint8
 class UTankBarrel; 
 class UTankTurret;
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -28,8 +28,8 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-	void SetTurretReference(UTankTurret* TurretToSet);
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialise(UTankBarrel*BarrelToSet, UTankTurret* TurretToSet);
 
 protected:
 
