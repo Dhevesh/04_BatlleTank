@@ -2,6 +2,7 @@
 
 #include "TankPlayerController.h"
 #include "TankAimingComponent.h"
+#include "Engine/World.h"
 
 
 void ATankPlayerController::BeginPlay()
@@ -30,6 +31,7 @@ void ATankPlayerController::AimTowardCrosshair()
 		AimingComponent->AimAt(HitLocation);
 	}
 }
+
 // Get world location of linetrace through crosshair, true if hits landscape	
 bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) const
 {
@@ -76,5 +78,8 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	return false;
 
 }
-;
+
+
+
+
 
