@@ -6,7 +6,6 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-class UTankAimingComponent;
 class UTankBarrel;
 class AProjectile;
 
@@ -27,7 +26,6 @@ protected:
 	
 
 public:	
-	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable)
 	void Fire();
@@ -44,8 +42,6 @@ private:
 
 	// Local barrel reference to spawn
 	UTankBarrel* Barrel = nullptr; // TODO remove
-
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 	double LastFireTime = 0;
 };
